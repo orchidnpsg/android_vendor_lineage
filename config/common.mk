@@ -1,5 +1,7 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
+$(call inherit-product-if-exists, vendor/oplauncher/OPLauncher2.mk)
+$(call inherit-product-if-exists, vendor/prebuilts/prebuilts.mk)
 
 PRODUCT_BRAND ?= LineageOS
 
@@ -107,13 +109,13 @@ PRODUCT_PACKAGES += \
 
 # AOSP packages
 PRODUCT_PACKAGES += \
-    Terminal
+    Terminal \
+    FusionReactor
 
 # Lineage packages
 PRODUCT_PACKAGES += \
     LineageParts \
     LineageSettingsProvider \
-    LineageSetupWizard \
     Updater
 
 # Themes
@@ -311,3 +313,4 @@ endif
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/lineage/config/partner_gms.mk
+-include vendor/aeonax/anxcamera/anx-vendor.mk
